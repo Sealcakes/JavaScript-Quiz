@@ -78,10 +78,11 @@ header #timer {
 .question-1 p {
     font-weight: 600;
     font-size: 20px;
+    margin-bottom: 25px;
 }
 
 .question-1 button {
-    margin: 10px 0;
+    margin: 10px 0 10px 0;
     padding: 5px 10px;
     border-radius: 10px;
     background-color: var(--button-color);
