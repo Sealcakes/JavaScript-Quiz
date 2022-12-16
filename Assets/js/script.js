@@ -11,6 +11,8 @@ var scoreReport = document.querySelector('.score-report');
 var score = document.querySelector('#score');
 var correctButton = document.querySelectorAll('.correct');
 var incorrectButtons = document.querySelectorAll('.incorrect');
+var timerInterval = null;
+
 
 var secondsLeft = 75;
 var currentIndex = 0;
@@ -27,7 +29,7 @@ function startQuiz(event) {
 }
 
 function quizTimer() {
-    var timerInterval = setInterval(function () {
+    timerInterval = setInterval(function () {
         secondsLeft--;
         timerSpanEl.textContent = secondsLeft;
 
@@ -42,7 +44,7 @@ function displayQuestion() {
     questionScreens[currentIndex].style.display = 'none';
     currentIndex += 1;
     
-    if (currentIndex == 5) {
+    if (currentIndex == currentIndex.length) {
         endQuiz();
     } else {
         questionScreens[currentIndex].style.display = 'flex';
