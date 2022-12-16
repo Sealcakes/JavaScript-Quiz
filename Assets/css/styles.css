@@ -46,13 +46,12 @@ header #timer {
     align-items: center;
     text-align: center;
     margin-top: 100px;
-    width: 40%;
-    margin-left: 30%;
 }
 
 .landing-page p {
     font-weight: 500;
     font-size: 20px;
+    width: 40%;
 }
 
 .landing-page button {
@@ -219,10 +218,24 @@ header #timer {
     padding: 5px 10px;
     border-radius: 10px;
     background-color: var(--button-color);
-    width: 15%;
+    width: 150px;
     cursor: pointer;
 }
 
 .score-report button:hover {
     background-color: var(--button-hover-color);
 }
+
+
+/* Media Queries */
+
+@media screen and (max-width: 768px) {
+    .landing-page {
+        margin: 100px 10px;
+    }
+    
+    .landing-page p {
+        margin: 0;
+        width: 100%;
+    }
+}    
