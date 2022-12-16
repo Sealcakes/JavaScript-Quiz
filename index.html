@@ -9,15 +9,18 @@
     <title>JavaScript Quiz</title>
 </head>
 <body>
+    <!-- Header contains webpage title, highscores page link and timer -->
     <header>
         <h1 id="title">JavaScript Quiz</h1>
         <a href="./highscores.html">Highscores</a>
         <p id="timer">Time: <span id="timer-number">75</span></p>
     </header>
+    <!-- Landing page is start screen, conatains quiz directions and start button -->
     <section class="landing-page">
         <p>Try to answer the following JavaScript-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
         <button id="quiz-start">Start Quiz</button>
     </section>
+    <!-- Questions are broken up into section elements -->
     <div class="question-container">
         <section class="question-1">
             <p>Question 1: What can you use to store data and then access it later?</p>
@@ -27,39 +30,42 @@
             <button class="incorrect">Methods</button>
         </section>
         <section class="question-2">
-            <p>Question 2: </p>
-            <button class="incorrect">Variables</button>
-            <button class="correct">Functions</button>
-            <button class="incorrect">Classes</button>
-            <button class="incorrect">Methods</button>
+            <p>Question 2: Which of the following is not a primitive data type?</p>
+            <button class="incorrect">Booleans</button>
+            <button class="correct">Herrings</button>
+            <button class="incorrect">Strings</button>
+            <button class="incorrect">Numbers</button>
         </section>
         <section class="question-3">
-            <p>Question 3: </p>
-            <button class="incorrect">Variables</button>
-            <button class="incorrect">Functions</button>
-            <button class="correct">Classes</button>
-            <button class="incorrect">Methods</button>
+            <p>Question 3: What is the correct way to write an IF statement?</p>
+            <button class="incorrect">if x == 5 {}</button>
+            <button class="incorrect">IF (X == 5 {}</button>
+            <button class="correct">if (x == 5) {}</button>
+            <button class="incorrect">for (x == 5) {}</button>
         </section>
         <section class="question-4">
-            <p>Question 4: </p>
-            <button class="incorrect">Variables</button>
-            <button class="incorrect">Functions</button>
-            <button class="incorrect">Classes</button>
-            <button class="correct">Methods</button>
+            <p>Question 4: In which HTML element do we link the JavaScript?</p>
+            <button class="incorrect">Header</button>
+            <button class="incorrect">Footer</button>
+            <button class="incorrect">Div</button>
+            <button class="correct">Body</button>
         </section>
         <section class="question-5">
-            <p>Question 5: </p>
-            <button class="incorrect">Variables</button>
-            <button class="incorrect">Functions</button>
-            <button class="correct">Classes</button>
-            <button class="incorrect">Methods</button>
+            <p>Question 5: How do you write "Hello World" in an alert box?</p>
+            <button class="incorrect">msg("Hello World");</button>
+            <button class="incorrect">alertBox("Hello World");</button>
+            <button class="correct">alert("Hello World");</button>
+            <button class="incorrect">announce("Hello World");</button>
         </section>
+        <!-- Score report is the final page that shows when the quiz is over,
+        it also displays to the user the score and gives the option to submit
+        score to the highscores page -->
         <section class="score-report">
             <h1>All done!</h1>
             <p>Final score: <span id="score"></span></p>
             <label for="initials">Please enter your initials:</label>
-            <input type="text" id="initials" name="initials">
-            <button>Submit Score</button>
+            <input type="text" id="initials" name="initials"/>
+            <button id="submit-score">Submit Score</button>
         </section>
     </div>
     <script src="./Assets/js/script.js"></script>
