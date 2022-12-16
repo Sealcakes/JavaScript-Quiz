@@ -11,8 +11,8 @@
 <body>
     <header>
         <h1 id="title">JavaScript Quiz</h1>
-        <a href="#">Highscores</a>
-        <p id="timer">Time: <span id="timer-number"></span></p>
+        <a href="./highscores.html">Highscores</a>
+        <p id="timer">Time: <span id="timer-number">75</span></p>
     </header>
     <section class="landing-page">
         <p>Try to answer the following JavaScript-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
@@ -20,12 +20,46 @@
     </section>
     <section class="question-1">
         <p>Question 1: What can you use to store data and then access it later?</p>
+        <button class="correct">Variables</button>
+        <button class="incorrect">Functions</button>
+        <button class="incorrect">Classes</button>
+        <button class="incorrect">Methods</button>
+    </section>
+    <section class="question-2">
+        <p>Question 2: </p>
         <button>Variables</button>
         <button>Functions</button>
         <button>Classes</button>
         <button>Methods</button>
     </section>
-    
+    <section class="question-3">
+        <p>Question 3: </p>
+        <button>Variables</button>
+        <button>Functions</button>
+        <button>Classes</button>
+        <button>Methods</button>
+    </section>
+    <section class="question-4">
+        <p>Question 4: </p>
+        <button>Variables</button>
+        <button>Functions</button>
+        <button>Classes</button>
+        <button>Methods</button>
+    </section>
+    <section class="question-5">
+        <p>Question 5: </p>
+        <button>Variables</button>
+        <button>Functions</button>
+        <button>Classes</button>
+        <button>Methods</button>
+    </section>
+    <section class="score-report">
+        <h1>All done!</h1>
+        <p>Final score: <span id="score"></span></p>
+        <label for="initials">Please enter your initials:</label>
+        <input type="text" id="initials" name="initials">
+        <button>Submit Score</button>
+    </section>
     <script src="./Assets/js/script.js"></script>
 </body>
 </html>

@@ -27,6 +27,7 @@ header a {
 
 header #timer {
     position: absolute;
+    display: none;
     top: 10px;
     right: 10px;
 }
@@ -59,7 +60,7 @@ header #timer {
     padding: 5px 10px;
     border-radius: 10px;
     background-color: var(--button-color);
-    width: 15%;
+    width: 150px;
     cursor: pointer;
 }
 
@@ -86,10 +87,142 @@ header #timer {
     padding: 5px 10px;
     border-radius: 10px;
     background-color: var(--button-color);
-    width: 8%;
+    width: 150px;
     cursor: pointer;
 }
 
 .question-1 button:hover {
+    background-color: var(--button-hover-color);
+}
+
+/* Question 2 Page Settings */
+.question-2 {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.question-2 p {
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.question-2 button {
+    margin: 10px 0 10px 0;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: var(--button-color);
+    width: 150px;
+    cursor: pointer;
+}
+
+.question-2 button:hover {
+    background-color: var(--button-hover-color);
+}
+
+/* Question 3 Page Settings */
+.question-3 {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.question-3 p {
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.question-3 button {
+    margin: 10px 0 10px 0;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: var(--button-color);
+    width: 150px;
+    cursor: pointer;
+}
+
+.question-3 button:hover {
+    background-color: var(--button-hover-color);
+}
+
+/* Question 4 Page Settings */
+.question-4 {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.question-4 p {
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.question-4 button {
+    margin: 10px 0 10px 0;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: var(--button-color);
+    width: 150px;
+    cursor: pointer;
+}
+
+.question-4 button:hover {
+    background-color: var(--button-hover-color);
+}
+
+/* Question 5 Page Settings */
+.question-5 {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.question-5 p {
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.question-5 button {
+    margin: 10px 0 10px 0;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: var(--button-color);
+    width: 150px;
+    cursor: pointer;
+}
+
+.question-5 button:hover {
+    background-color: var(--button-hover-color);
+}
+
+/* Report score page */
+.score-report {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.score-report p {
+    margin-bottom: 10px;
+}
+
+.score-report button {
+    margin: 10px 0 10px 0;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: var(--button-color);
+    width: 15%;
+    cursor: pointer;
+}
+
+.score-report button:hover {
     background-color: var(--button-hover-color);
 }
