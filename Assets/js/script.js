@@ -14,6 +14,9 @@ var correctButton = document.querySelectorAll('.correct');
 var incorrectButtons = document.querySelectorAll('.incorrect');
 var userInitialsInput = document.querySelector('#initials');
 var submitScoreBtn = document.querySelector('#submit-score');
+var scoreConfirm = document.querySelector('.confirm-score-submit');
+var homeBtn = document.querySelector('#home-button');
+var message = document.querySelector('.message');
 
 // Global Function Variables
 var secondsLeft = 75;
@@ -70,6 +73,11 @@ function rightOrWrongButton() {
         correctButton[i].addEventListener('click', function(event) {
             event.preventDefault();
             displayQuestion();
+            message.style.cssText = 'font-weight: 500; color: green';
+            message.textContent = "Correct!";
+            setTimeout(() => {
+                message.style.display = 'none';
+            }, 1000);
         })
     }
     
@@ -78,6 +86,11 @@ function rightOrWrongButton() {
             event.preventDefault();
             secondsLeft -= 10;
             displayQuestion();
+            message.style.cssText = 'font-weight: 500; color: red';
+            message.textContent = "Incorrect!";
+            setTimeout(() => {
+                message.style.display = 'none';
+            }, 1000);
         })
     }
 }
@@ -96,7 +109,8 @@ function submitScore(event) {
 
     localStorage.setItem('userInitials', userInitialsInput.value);
     localStorage.setItem('score', score);
-    
+    scoreReport.style.display = "none";
+    scoreConfirm.style.display = "flex";
 }
 // TODO: LINK SCORE TO HIGHSCORES PAGE
 
@@ -104,3 +118,10 @@ function submitScore(event) {
 startBtn.addEventListener('click', startQuiz);
 // Event listener for submit score button
 submitScoreBtn.addEventListener('click', submitScore);
+// Event listener for home button
+homeBtn.addEventListener('click', function(event) {
+    event.preventDefault();
+    scoreConfirm.style.display = 'none';
+    landingPage.style.display = 'flex';
+    timerEl.style.display = 'none';
+})
