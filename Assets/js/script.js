@@ -17,6 +17,8 @@ var submitScoreBtn = document.querySelector('#submit-score');
 var scoreConfirm = document.querySelector('.confirm-score-submit');
 var homeBtn = document.querySelector('#home-button');
 var message = document.querySelector('.message');
+var highscoresList = document.querySelector('#highscores-list');
+
 
 // Global Function Variables
 var secondsLeft = 75;
@@ -24,11 +26,12 @@ var currentIndex = 0;
 var questionScreens = [question1, question2, question3, question4, question5];
 var timerInterval = null;
 var score = 0;
+var highscores = {};
 
 // Function to Start Quiz/Timer/Questions after Start Button is clicked
 function startQuiz(event) {
     event.preventDefault();
-
+    secondsLeft = 75;
     landingPage.style.display = "none";
     questionScreens[0].style.display = "flex";
     timerEl.style.display = "block";
@@ -107,21 +110,55 @@ function endQuiz() {
 function submitScore(event) {
     event.preventDefault();
 
-    localStorage.setItem('userInitials', userInitialsInput.value);
-    localStorage.setItem('score', score);
+    if (userInitialsInput.value == "") {
+        message.style.cssText = 'font-weight: 500; color: red';
+        message.textContent = "Cannot submit highscore without initials";
+        setTimeout(() => {
+            message.style.display = 'none';
+        }, 2000);
+        return;
+    }
+
+    highscores = {
+        "User Initials": userInitialsInput.value,
+        "Score": score,
+    };
+
+    localStorage.setItem("highscores", JSON.stringify(highscores));
     scoreReport.style.display = "none";
     scoreConfirm.style.display = "flex";
+    userInitialsInput.textContent = "";
+    renderHighscores();
 }
 // TODO: LINK SCORE TO HIGHSCORES PAGE
+function renderHighscores() {
+    
+    for (x = 0; x < highscores.length; x++) {
+
+        var li = document.createElement("li");
+        li.textContent = highscores[x];
+
+
+        highscoresList.appendChild(li);
+    }
+};
+
 
 // Event Listener to start quiz
-startBtn.addEventListener('click', startQuiz);
+if (startBtn !== null) {
+    startBtn.addEventListener('click', startQuiz);
+}
+
 // Event listener for submit score button
-submitScoreBtn.addEventListener('click', submitScore);
+if (submitScoreBtn !== null) {
+    submitScoreBtn.addEventListener('click', submitScore); 
+}
 // Event listener for home button
-homeBtn.addEventListener('click', function(event) {
-    event.preventDefault();
-    scoreConfirm.style.display = 'none';
-    landingPage.style.display = 'flex';
-    timerEl.style.display = 'none';
-})
+if (homeBtn !== null) {
+    homeBtn.addEventListener('click', function(event) {
+        event.preventDefault();
+        scoreConfirm.style.display = 'none';
+        landingPage.style.display = 'flex';
+        timerEl.style.display = 'none';
+    })
+}
