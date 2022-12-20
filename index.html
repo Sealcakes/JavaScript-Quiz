@@ -12,7 +12,7 @@
     <!-- Header contains webpage title, highscores page link and timer -->
     <header>
         <h1 id="title">JavaScript Quiz</h1>
-        <a href="./highscores.html">Highscores</a>
+        <button id="highscores-btn">Highscores</button>
         <p id="timer">Time: <span id="timer-number">75</span></p>
     </header>
     <!-- Landing page is start screen, conatains quiz directions and start button -->
@@ -72,7 +72,12 @@
     <section class="confirm-score-submit">
         <h2>Thank you for submitting your score!</h2>
         <button id="home-button">Home</button>
-        <a href="./highscores.html"><button id="highscores">View Highscores</button></a>
+        <button id="highscores">View Highscores</button>
+    </section>
+    <section class="highscores-page">
+        <h2>JavaScript Quiz Highscores</h2>
+        <ol id="highscoresList"></ol>
+        <button id="back-btn">Back</button>
     </section>
     <script src="./Assets/js/script.js"></script>
 </body>

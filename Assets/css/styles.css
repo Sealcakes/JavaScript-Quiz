@@ -17,28 +17,16 @@ body {
     background-color: #555;
 }
 
-header a {
+header button {
     position: absolute;
     top: 10px;
     left: 10px;
-    text-decoration: none;
-    color: black;
-    font-weight: 600;
-}
-
-header a:before {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    height: 3px;
-    width: 0%;
-    background: var(--button-color);
-    transition: all 0.4s ease;
-}
-
-header a:hover:before {
-    width: 100%;
+    margin: 10px 0;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: var(--button-color);
+    width: 150px;
+    cursor: pointer;
 }
 
 header #timer {
@@ -52,7 +40,7 @@ header #timer {
     display: flex;
     justify-content: center;
     font-size: 35px;
-    margin-top: 30px;
+    margin-top: 60px;
 }
 
 /* Main page settings */
@@ -276,6 +264,22 @@ header #timer {
     background-color: var(--button-hover-color);
 }
 
+/* Highscores Page */
+
+.highscores-page {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.highscores-page button {
+    margin: 10px 0 10px 0;
+    padding: 5px 0px;
+    border-radius: 10px;
+    background-color: var(--button-color);
+    width: 100px;
+    cursor: pointer;
+}
 
 /* Media Queries */
 

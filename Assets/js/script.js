@@ -17,8 +17,11 @@ var submitScoreBtn = document.querySelector('#submit-score');
 var scoreConfirm = document.querySelector('.confirm-score-submit');
 var homeBtn = document.querySelector('#home-button');
 var message = document.querySelector('.message');
-var highscoresList = document.querySelector('#highscores-list');
-
+var viewHighscores = document.querySelector('#highscores');
+var highscoresList = document.querySelector('#highscoresList');
+var highscoresBtn = document.querySelector('#highscores-btn');
+var highscoresPage = document.querySelector('.highscores-page');
+var backBtn = document.querySelector('#back-btn');
 
 // Global Function Variables
 var secondsLeft = 75;
@@ -26,7 +29,7 @@ var currentIndex = 0;
 var questionScreens = [question1, question2, question3, question4, question5];
 var timerInterval = null;
 var score = 0;
-var highscores = {};
+var highscores = [];
 
 // Function to Start Quiz/Timer/Questions after Start Button is clicked
 function startQuiz(event) {
@@ -67,9 +70,9 @@ function displayQuestion() {
 
 /* Determines if the button the user clicks on to answer the question is right or wrong,
 if the user selects the wrong answer it subtracks 10 seconds from the timer.  Both
-correct and incorrect will advance the quiz to the next question */
+correct and incorrect will advance the quiz to the next question.  This function
+will also inform the user of a correct or incorrect answer. */
 
-// TODO: CREATE CORRECT/INCORRECT INDICATOR HERE
 function rightOrWrongButton() {
     
     for (i = 0; i < correctButton.length; i++) {
@@ -118,47 +121,64 @@ function submitScore(event) {
         }, 2000);
         return;
     }
-
-    highscores = {
-        "User Initials": userInitialsInput.value,
-        "Score": score,
-    };
-
-    localStorage.setItem("highscores", JSON.stringify(highscores));
+    
     scoreReport.style.display = "none";
     scoreConfirm.style.display = "flex";
     userInitialsInput.textContent = "";
     renderHighscores();
 }
 // TODO: LINK SCORE TO HIGHSCORES PAGE
-function renderHighscores() {
-    
-    for (x = 0; x < highscores.length; x++) {
+// function renderHighscores() {
+//     let storedHighscores = {initials: userInitialsInput.value, score: score};
+//     var highScoreString = localStorage.getItem('highscores');
+//     var highscoreArray = JSON.parse(highScoreString);
+//     if (highscoreArray === null) {
+//         highscoreArray = []
+//     }
+//     highscoreArray.push(storedHighscores);
+//     localStorage.setItem("highscores", JSON.stringify(storedHighscores));
+//     var highscores = JSON.parse(localStorage.getItem('highscores'));
 
-        var li = document.createElement("li");
-        li.textContent = highscores[x];
+//     for (x=0; x<highscores.length; x++) {
+//         var li = document.createElement("li");
+//         li.textContent = highscores[x];
 
+//         highscoresList.appendChild(li);
+//     }
+// };
 
-        highscoresList.appendChild(li);
-    }
-};
-
+function displayHighscores(event) {
+    event.preventDefault();
+    landingPage.style.display = 'none';
+    highscoresPage.style.display = 'flex';
+}
 
 // Event Listener to start quiz
-if (startBtn !== null) {
-    startBtn.addEventListener('click', startQuiz);
-}
+startBtn.addEventListener('click', startQuiz);
+
 
 // Event listener for submit score button
-if (submitScoreBtn !== null) {
-    submitScoreBtn.addEventListener('click', submitScore); 
-}
+submitScoreBtn.addEventListener('click', submitScore); 
+
 // Event listener for home button
-if (homeBtn !== null) {
-    homeBtn.addEventListener('click', function(event) {
-        event.preventDefault();
-        scoreConfirm.style.display = 'none';
-        landingPage.style.display = 'flex';
-        timerEl.style.display = 'none';
-    })
-}
+homeBtn.addEventListener('click', function(event) {
+    event.preventDefault();
+    scoreConfirm.style.display = 'none';
+    landingPage.style.display = 'flex';
+    timerEl.style.display = 'none';
+})
+// Event Listener for Highscores Button on Confirmation screen
+viewHighscores.addEventListener('click', function(event) {
+    scoreConfirm.style.display = 'none';
+    highscoresPage.style.display = 'flex';
+})
+
+
+// Event Listener for Top Left Highscores Button
+highscoresBtn.addEventListener('click', displayHighscores);
+
+backBtn.addEventListener('click', function(event) {
+    event.preventDefault();
+    highscoresPage.style.display = 'none';
+    landingPage.style.display = 'flex';
+})
