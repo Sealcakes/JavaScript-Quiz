@@ -102,6 +102,10 @@ function rightOrWrongButton() {
 }
 /* This function displays the end of the quiz screen and shows the user's score */
 function endQuiz() {
+    questionScreens[0].style.display = 'none';
+    questionScreens[1].style.display = 'none';
+    questionScreens[2].style.display = 'none';
+    questionScreens[3].style.display = 'none';
     questionScreens[4].style.display = 'none';
     scoreReport.style.display = 'flex';
     clearInterval(timerInterval);
